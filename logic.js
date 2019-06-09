@@ -32,6 +32,7 @@ $(document).ready(function() {
         $("#totalScore-Text").text(totalScore)
     }
 
+    //Setup win/lose function
     function winsFunction() {
     alert("you won!");
     wins++
@@ -46,20 +47,23 @@ $(document).ready(function() {
     reset();
     }
 
+    //Setup game function
+    function winloseFunction(){
+        if (totalScore == randomNumber){
+            winsFunction();
+          }
+        else if ( totalScore > randomNumber){
+            lossesFunction();
+          }
+    }
 
-    //sets up game function
+    //Setup win/lose and game function to crystal
     $("#c1").on ("click", function(){
         totalScore = totalScore + crystal1;
         console.log("New Total Score= " + totalScore);
     $('#totalScore-Text').text(totalScore); 
       //sets win/lose conditions
-      if (totalScore == randomNumber){
-        winsFunction();
-      }
-      else if ( totalScore > randomNumber){
-        lossesFunction();
-      }
- 
+      winloseFunction();
     })  
 
     $("#c2").on ("click", function(){
@@ -67,12 +71,7 @@ $(document).ready(function() {
         console.log("New Total Score= " + totalScore);
     $('#totalScore-Text').text(totalScore); 
       //sets win/lose condition
-      if (totalScore == randomNumber){
-        winsFunction();
-      }
-      else if ( totalScore > randomNumber){
-        lossesFunction();
-      }
+      winloseFunction();
     })
 
 
@@ -81,12 +80,7 @@ $(document).ready(function() {
         console.log("New Total Score= " + totalScore);
     $('#totalScore-Text').text(totalScore); 
       //sets win/lose conditions
-      if (totalScore == randomNumber){
-        winsFunction();
-      }
-      else if ( totalScore > randomNumber){
-        lossesFunction();
-      }
+      winloseFunction();
     })
 
     $("#c4").on ("click", function(){
@@ -94,11 +88,6 @@ $(document).ready(function() {
         console.log("New Total Score= " + totalScore);
     $('#totalScore-Text').text(totalScore); 
       //sets win/lose conditions
-      if (totalScore == randomNumber){
-        winsFunction();
-      }
-      else if ( totalScore > randomNumber){
-        lossesFunction();
-      }
+      winloseFunction();
     });
 });
